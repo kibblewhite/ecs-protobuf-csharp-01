@@ -1,20 +1,27 @@
 # ecs-protobuf-csharp-01
 
-
 The nuget package source needs to be configured within the Visual Studio IDE
 
 Name: protobuf-csharp
 
 Source: https://gitlab.com/api/v4/projects/31452783/packages/nuget/index.json
 
+---
 
-If asked for creditials you might need to configure nuget package access details through the following file:
+In the last example call, a certificate file is required for the certificate based authentication call to work.
+
+> Please request for the developer's pass_cert.p12 file that is part of the solutions-fulfilment-svc
+
+---
+
+If asked for credentials you might need to configure nuget package access details through either of the following filepath locations:
 
 > %USERPROFILE%\AppData\Roaming\NuGet\NuGet.Config
 
 Or within the startup project of the visual studio solution:
 
 > ./Properties/nuget.config
+
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -49,11 +56,14 @@ Or within the startup project of the visual studio solution:
 ```
 
 
-> Both the identity-svc and solutions-fulfilment-svc gRPC services should be running locally on the development machine.
+> Both the identity-svc and solutions-fulfilment-svc gRPC services have to be running locally on the development machine in order for these examples to work correctly.
 
-Returned Results should look roughly the following (last updated 2021-11-19):
+
+Returned Results should look roughly the following (last updated 2021-11-21):
+
 
 ```
+ --------[ first service request ]--------
 {
   "PricingModelGuid": "00000000-0000-0000-0000-000000000000",
   "Title": "Testing...",
@@ -75,5 +85,17 @@ Returned Results should look roughly the following (last updated 2021-11-19):
 {
   "Message": "Default"
 }
-
+ --------[ last service request with certification authentication ]--------
+{
+  "PricingModelGuid": "",
+  "Title": "FREE",
+  "Synopsis": "Synopsis Text for Free Price Model",
+  "HtmlSummary": "Summary",
+  "HtmlContent": "\u003Cdiv\u003EHTML Descriptive Content inside Modal.\u003C/div\u003E",
+  "Iso4217Code": "GBP",
+  "SalesValue": 0,
+  "FrequencyType": 6,
+  "DisplayFrequency": "month",
+  "DisplaySalesValue": "FREE"
+}
 ```

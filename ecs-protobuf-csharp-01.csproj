@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Infrastructure\pass_cert.p12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Infrastructure\pass_cert.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ECS.Protobuf.Common" Version="1.0.2" />
     <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
     <PackageReference Include="Grpc.Tools" Version="2.42.0">
