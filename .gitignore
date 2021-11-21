@@ -196,6 +196,9 @@ PublishScripts/
 *.nuget.props
 *.nuget.targets
 
+# Personal nuget repository login details
+Properties/nuget.config
+
 # Microsoft Azure Build Output
 csx/
 *.build.csdef

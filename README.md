@@ -12,6 +12,10 @@ If asked for creditials you might need to configure nuget package access details
 
 > %USERPROFILE%\AppData\Roaming\NuGet\NuGet.Config
 
+Or within the startup project of the visual studio solution:
+
+> ./Properties/nuget.config
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
